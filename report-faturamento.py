@@ -122,6 +122,9 @@ faturamento = create_df_from_database(r'\\srvhkm001\GESTAO DE CONTRATOS\Ciência
 # Considerando apenas notas fiscais de saída
 faturamento = faturamento[faturamento['Saída'] == 'X']
 
+# Filtrando os CFOPs visados para projeto
+faturamento = faturamento[faturamento['CFOP'].isin(['5101','5102','5124','5933','6101','6102','6118','6123','6124','6933'])]
+
 # Reorganizando apenas as colunas necessárias
 faturamento = faturamento[['Tipo','NF','Data Emissão','Status','OS','Produto','Cliente','Valor']]
 
